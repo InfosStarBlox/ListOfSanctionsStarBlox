@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manual Staff Starblox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#000000; --surface:#0c0c0c; --line:#262626; --line-2:#363636;
+  --text:#ededed; --muted:#9a9a9a; --faint:#5c5c5c; --white:#ffffff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+header{padding:88px 0 48px;border-bottom:1px solid var(--line)}
+h1{
+  margin:0;font-weight:700;letter-spacing:-.045em;line-height:.95;
+  font-size:clamp(44px,10vw,96px);color:var(--white);
+}
+h1 span{color:var(--faint)}
+.lead{margin:24px 0 0;max-width:46ch;color:var(--muted);font-size:19px}
+
+.notice{
+  margin:36px 0 0;padding:20px 24px;background:var(--surface);
+  border:1px solid var(--line);border-left:3px solid var(--white);border-radius:4px;
+}
+.notice p{margin:0}
+.notice strong{color:var(--white);font-weight:600}
+
+nav{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:5;
+  background:rgba(0,0,0,.88);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{
+  flex:none;padding:6px 14px;border-radius:999px;color:var(--muted);
+  text-decoration:none;font-size:14px;font-weight:500;border:1px solid transparent;
+  transition:color .15s,border-color .15s;
+}
+nav a:hover,nav a:focus-visible{color:var(--white);border-color:var(--line-2);outline:none}
+
+section{padding:48px 0 2px}
+section>h2{margin:0 0 4px;font-size:28px;font-weight:600;letter-spacing:-.02em;color:var(--white)}
+section>.sub{margin:0 0 6px;color:var(--faint);font-size:15px}
+
+.item{padding:16px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item h3{margin:0 0 2px;font-size:19px;font-weight:600;color:var(--white)}
+.item h3 small{font-size:13px;font-weight:500;color:var(--faint);margin-left:8px}
+.desc{margin:0 0 8px;color:var(--faint);font-size:15px}
+
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+.steps li{display:flex;align-items:baseline;gap:10px;color:var(--muted)}
+.steps .e{flex:none;width:1.4em;text-align:center}
+.steps b{color:var(--text);font-weight:600}
+
+.note{margin:8px 0 0;color:var(--muted);max-width:64ch}
+.note b{color:var(--text);font-weight:600}
+
+.callout{
+  margin:12px 0 0;padding:16px 20px;background:var(--surface);
+  border:1px solid var(--line);border-radius:4px;color:var(--muted);
+}
+.callout h4{margin:0 0 4px;font-size:16px;font-weight:600;color:var(--white)}
+.callout p{margin:0 0 6px}
+.callout p:last-child{margin:0}
+.callout b{color:var(--text);font-weight:600}
+
+footer{margin-top:48px;padding:28px 0 56px;border-top:1px solid var(--line);color:var(--faint);font-size:14px}
+
+@media (max-width:560px){
+  header{padding:64px 0 36px}
+  section{padding-top:40px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>📘 Manual<br><span>Staff Starblox</span></h1>
+    <p class="lead">Manual oficial del staff. Lee con atención cada sanción antes de aplicarla y úsala con criterio.</p>
+    <div class="notice">
+      <p><strong>⚠️ Atención:</strong> cualquier mal uso del sistema puede resultar en <strong>warn, strike o demote</strong>.</p>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Secciones">
+  <div class="wrap">
+    <a href="#advertencias">⚖️ Advertencias</a>
+    <a href="#moderacion">🚨 Moderación</a>
+    <a href="#respeto">🧠 Respeto</a>
+    <a href="#crosstrade">🫣 Crosstrade</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="advertencias">
+    <h2>⚖️ Sistema de advertencias</h2>
+    <div class="item">
+      <h3>📋 Sistema base</h3>
+      <p class="desc">Orden en el que se aplican las sanciones.</p>
+      <ul class="steps">
+        <li><span class="e">1️⃣</span><span><b>1/2</b> · Primera advertencia</span></li>
+        <li><span class="e">2️⃣</span><span><b>2/2</b> · Segunda advertencia</span></li>
+        <li><span class="e">🔇</span><span>Si vuelve a cometer la falta (y ninguna adv es de un día anterior) → <b>procede mute</b></span></li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>🔁 Reinicio de advertencias</h3>
+      <p class="desc">Las advertencias no se acumulan para siempre.</p>
+      <ul class="steps">
+        <li><span class="e">🌅</span><span>Las advertencias se reinician <b>todos los días</b>.</span></li>
+      </ul>
+      <div class="callout">
+        <h4>💡 Ejemplo</h4>
+        <p>Si das 1/2 hoy y 2/2 ese mismo día, ambas están bien dadas y si vuelve a cometer la falta ese día, procede el mute.</p>
+        <p>Pero si la primera advertencia es de ayer, ya se reinició: el conteo vuelve a empezar y debes dar 1/2 otra vez.</p>
+        <p><b>Solo puedes aplicar el mute si todas las advertencias son del mismo día.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="moderacion">
+    <h2>🚨 Moderación general</h2>
+    <div class="item">
+      <h3>📝 Spam</h3>
+      <p class="desc">Mensajes repetidos para llenar el chat.</p>
+      <ul class="steps">
+        <li><span class="e">⚠️</span><span>4 mensajes iguales → <b>adv 1/2</b></span></li>
+        <li><span class="e">🔇</span><span>Si continúa → <b>mute 30m</b></span></li>
+        <li><span class="e">🔇</span><span>Spam excesivo → <b>mute 30m–45m</b></span></li>
+        <li><span class="e">🚫</span><span>Muy grave → <b>mute 1h</b></span></li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>📚 Walltext / Flood</h3>
+      <p class="desc">Textos enormes o mensajes en cadena que tapan el chat.</p>
+      <ul class="steps">
+        <li><span class="e">⚠️</span><span>Leve → <b>adv 1/2</b></span></li>
+        <li><span class="e">🔇</span><span>Masivo → <b>mute 30m–45m</b></span></li>
+        <li><span class="e">🚫</span><span>Flood fuerte → <b>mute 30m–1h</b></span></li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>🔀 Desvío de canales</h3>
+      <p class="desc">Hablar de temas que no corresponden al canal.</p>
+      <ul class="steps">
+        <li><span class="e">🔢</span><span>Solo si se desvía <b>más de 2 veces</b></span></li>
+        <li><span class="e">⚠️</span><span><b>Adv 1/2</b> → <b>adv 2/2</b></span></li>
+        <li><span class="e">🔇</span><span>Si continúa → <b>mute</b></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="respeto">
+    <h2>🧠 Discusiones y respeto</h2>
+    <div class="item">
+      <h3>🗣️ Discusiones / Peleas</h3>
+      <p class="desc">Conflictos entre miembros dentro del chat.</p>
+      <ul class="steps">
+        <li><span class="e">⚠️</span><span><b>Adv 1/2</b></span></li>
+        <li><span class="e">⚠️</span><span><b>Adv 2/2</b></span></li>
+        <li><span class="e">🔇</span><span>Si sobrepasa → <b>mute 15m–30m</b></span></li>
+        <li><span class="e">🔥</span><span>Si la pelea escala demasiado → <b>mute de 1h a todos los involucrados</b></span></li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>👮 Insultos al staff <small>solo si es hacia ti</small></h3>
+      <p class="desc">Solo sanciona si el insulto fue directo hacia ti.</p>
+      <ul class="steps">
+        <li><span class="e">⚠️</span><span><b>Adv 1/2</b></span></li>
+        <li><span class="e">⚠️</span><span><b>Adv 2/2</b></span></li>
+        <li><span class="e">🔇</span><span>Si sobrepasa → <b>mute 30m–45m</b></span></li>
+        <li><span class="e">🤔</span><span>No sanciones si no sabes si hay confianza con otro staff.</span></li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>🔔 Pings innecesarios <small>solo a Executives</small></h3>
+      <p class="desc">Aplica únicamente cuando el ping va dirigido a un Executive.</p>
+      <ul class="steps">
+        <li><span class="e">⚠️</span><span><b>Adv 1/2</b></span></li>
+        <li><span class="e">⚠️</span><span><b>Adv 2/2</b></span></li>
+        <li><span class="e">🔇</span><span>Si sobrepasa → <b>mute 30m</b></span></li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>😂 Reacciones ofensivas <small>solo si es hacia ti</small></h3>
+      <p class="desc">Reacciones usadas para burlarse de ti.</p>
+      <ul class="steps">
+        <li><span class="e">⚠️</span><span><b>Adv 1/2</b></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="crosstrade">
+    <h2>🫣 Crosstrade</h2>
+    <div class="item">
+      <h3>⚠️ Advertencias</h3>
+      <ul class="steps">
+        <li><span class="e">2️⃣</span><span>Solo hay <b>2 advertencias</b> posibles.</span></li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>🔀 Desvío de canal</h3>
+      <ul class="steps">
+        <li><span class="e">⌨️</span><span>Desvío con <b>comandos</b>: 1 comando es <b>adv 1/2 automático</b>.</span></li>
+        <li><span class="e">💬</span><span>Desvío hablando, por ejemplo cuando no es ofertándole a alguien: se necesitan <b>4 mensajes</b> y se da <b>adv 1/2</b>, y lo consiguiente.</span></li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>🛑 Comercio de cuentas</h3>
+      <ul class="steps">
+        <li><span class="e">⚠️</span><span><b>Adv 1/1</b> por comercio de cuentas.</span></li>
+        <li><span class="e">📣</span><span>Si no hace caso y continúa → <b>warn</b>.</span></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">⚠️ Advertencia · 🔇 Mute · 🚫 Sanción grave<p style="margin:14px 0 0;color:var(--muted)">by @btwyumi</p></div>
+</footer>
+
+</body>
+</html>
